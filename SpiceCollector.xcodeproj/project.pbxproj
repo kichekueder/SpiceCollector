@@ -13,6 +13,8 @@
 		E25198921ED6414A006EEE46 /* SpiceCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E25198901ED6414A006EEE46 /* SpiceCollector.xcdatamodeld */; };
 		E25198941ED6414A006EEE46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E25198931ED6414A006EEE46 /* Assets.xcassets */; };
 		E25198971ED6414A006EEE46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25198951ED6414A006EEE46 /* LaunchScreen.storyboard */; };
+		E251989F1ED6464D006EEE46 /* NZ_Foxglove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E251989E1ED6464D006EEE46 /* NZ_Foxglove.jpg */; };
+		E25198A11ED6470B006EEE46 /* SpiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25198A01ED6470B006EEE46 /* SpiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E25198931ED6414A006EEE46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E25198961ED6414A006EEE46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E25198981ED6414A006EEE46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E251989E1ED6464D006EEE46 /* NZ_Foxglove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NZ_Foxglove.jpg; sourceTree = "<group>"; };
+		E25198A01ED6470B006EEE46 /* SpiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				E25198891ED6414A006EEE46 /* AppDelegate.swift */,
 				E251988B1ED6414A006EEE46 /* ViewController.swift */,
 				E251988D1ED6414A006EEE46 /* Main.storyboard */,
+				E25198A01ED6470B006EEE46 /* SpiceViewController.swift */,
 				E25198931ED6414A006EEE46 /* Assets.xcassets */,
 				E25198951ED6414A006EEE46 /* LaunchScreen.storyboard */,
 				E25198981ED6414A006EEE46 /* Info.plist */,
 				E25198901ED6414A006EEE46 /* SpiceCollector.xcdatamodeld */,
+				E251989E1ED6464D006EEE46 /* NZ_Foxglove.jpg */,
 			);
 			path = SpiceCollector;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 				E25198971ED6414A006EEE46 /* LaunchScreen.storyboard in Resources */,
 				E25198941ED6414A006EEE46 /* Assets.xcassets in Resources */,
 				E251988F1ED6414A006EEE46 /* Main.storyboard in Resources */,
+				E251989F1ED6464D006EEE46 /* NZ_Foxglove.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +150,7 @@
 				E251988C1ED6414A006EEE46 /* ViewController.swift in Sources */,
 				E251988A1ED6414A006EEE46 /* AppDelegate.swift in Sources */,
 				E25198921ED6414A006EEE46 /* SpiceCollector.xcdatamodeld in Sources */,
+				E25198A11ED6470B006EEE46 /* SpiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
