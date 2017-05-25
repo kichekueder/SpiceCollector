@@ -13,7 +13,7 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var spiceImage: UIImageView!
     @IBOutlet weak var spiceTextField: UITextField!
-
+    
     // Prepare add button to be used as Update button (create outlet)
     @IBOutlet weak var addAsUpdateButton: UIButton!
     
@@ -21,7 +21,7 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     // provide Image Picker
     var imagePicker = UIImagePickerController()
-
+    
     var spice : Spice? = nil // If + was tapped this will remain nil, otherwise the chose spice will populate the variable.
     
     override func viewDidLoad() {
@@ -37,8 +37,8 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if spice != nil {
             
             spiceImage?.image = UIImage(data: spice!.image! as! Data)
-        spiceTextField.text = spice!.title
-
+            spiceTextField.text = spice!.title
+            
             // Change add button to now say "Update"
             addAsUpdateButton.setTitle("Update", for: .normal)
             
@@ -78,23 +78,56 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func cameraTapped(_ sender: Any) {
         
+        // Use camrea as source
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
         
+        // need to include a permission request in info.plist
+       
         
     }
     
     @IBAction func addTapped(_ sender: Any) {
         
+        // Is the spice new? If not, update the core data
+        if spice != nil {
+            
+            // assign the text from the text field and the image selected (must be converted).
+            spice!.title = spiceTextField.text!
+            spice!.image = UIImagePNGRepresentation(spiceImage.image!) as NSData?
+            
+        } else { // If the spice is new, create new object
+            
+            // create link to Core Data
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            // define the spice constant as container for the spice image and title picked by user.
+            let spice = Spice(context: context)
+            
+            // assign the text from the text field and the image selected (must be converted).
+            spice.title = spiceTextField.text!
+            spice.image = UIImagePNGRepresentation(spiceImage.image!) as NSData?
+            
+            
+        }
+        
+        // save the information to Core Data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // pop back to main VC
+        navigationController!.popViewController(animated: true)
+        
+    }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+        
         // create link to Core Data
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        // define the spice constant as container for the spice image and title picked by user.
-        let spice = Spice(context: context)
+        // delete the record
+        context.delete(spice!)
         
-        // assign the text from the text field and the image selected (must be converted).
-        spice.title = spiceTextField.text!
-        spice.image = UIImagePNGRepresentation(spiceImage.image!) as NSData?
-        
-        // save the information to Core Data
+        // update the records on Core Data
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         // pop back to main VC
