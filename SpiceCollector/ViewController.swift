@@ -61,6 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // collect the spice data for this row
         let spice = spices[indexPath.row]
         cell.textLabel?.text = spice.title
+        cell.imageView?.image = UIImage(data: spice.image! as Data)
         
         // return the cell
         return cell
