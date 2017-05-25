@@ -42,7 +42,7 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     // function called once user has selected picture
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-       
+        
         // collect image selected into constant 'image'
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -62,7 +62,18 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func addTapped(_ sender: Any) {
         
+        // create link to Core Data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        // define the spice constant as container for the spice image and title picked by user.
+        let spice = Spice(context: context)
+        
+        // assign the text from the text field and the image selected (must be converted).
+        spice.title = spiceTextField.text!
+        spice.image = UIImagePNGRepresentation(spiceImage.image!) as NSData?
+        
+        // save the information to Core Data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
     }
     
