@@ -75,6 +75,9 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // save the information to Core Data
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        // pop back to main VC
+        navigationController!.popViewController(animated: true)
+        
     }
     
     
