@@ -13,7 +13,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var spices : [Spice] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -65,6 +64,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // return the cell
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // assign the selected spice to constant
+        let spice = spices[indexPath.row]
+        performSegue(withIdentifier: "spiceSegue", sender: spice)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let nextVC = segue.destination as! SpiceViewController
+        nextVC.spice = sender as? Spice
         
     }
     

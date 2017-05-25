@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" id="d5g-BS-RPn">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="o2t-Fo-Gwp">
                             <connections>
-                                <segue destination="6Ka-hc-U5J" kind="show" id="kzJ-RL-Rck"/>
+                                <segue destination="6Ka-hc-U5J" kind="show" identifier="spiceSegue" id="kzJ-RL-Rck"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -83,6 +83,13 @@
                                     <action selector="addTapped:" destination="6Ka-hc-U5J" eventType="touchUpInside" id="oE4-D8-fkD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Toz-8v-eCD">
+                                <rect key="frame" x="138" y="324" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="6Ka-hc-U5J" eventType="touchUpInside" id="O05-c9-eLX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -92,8 +99,10 @@
                             <constraint firstItem="KUG-db-6Lp" firstAttribute="centerX" secondItem="qqM-RI-kcg" secondAttribute="centerX" id="V8E-IL-WAT"/>
                             <constraint firstItem="bFM-LF-REI" firstAttribute="centerX" secondItem="qqM-RI-kcg" secondAttribute="centerX" id="WG0-WP-BoG"/>
                             <constraint firstItem="dUN-Pq-MHp" firstAttribute="centerX" secondItem="qqM-RI-kcg" secondAttribute="centerX" id="dag-Ga-bOL"/>
+                            <constraint firstItem="Toz-8v-eCD" firstAttribute="centerX" secondItem="qqM-RI-kcg" secondAttribute="centerX" id="eaK-tH-g06"/>
                             <constraint firstItem="bFM-LF-REI" firstAttribute="top" secondItem="KUG-db-6Lp" secondAttribute="bottom" constant="10" id="i6V-Jf-bNO"/>
                             <constraint firstItem="dUN-Pq-MHp" firstAttribute="top" secondItem="bFM-LF-REI" secondAttribute="bottom" constant="10" id="m2U-tS-HKc"/>
+                            <constraint firstItem="Toz-8v-eCD" firstAttribute="top" secondItem="dUN-Pq-MHp" secondAttribute="bottom" constant="10" id="vKc-T2-lrw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ype-hq-Z1s">
@@ -111,6 +120,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addAsUpdateButton" destination="dUN-Pq-MHp" id="nhZ-fb-0Mh"/>
+                        <outlet property="deleteButton" destination="Toz-8v-eCD" id="sAZ-nV-Ic6"/>
                         <outlet property="spiceImage" destination="KUG-db-6Lp" id="jtN-ga-FHt"/>
                         <outlet property="spiceTextField" destination="bFM-LF-REI" id="oSb-ga-GrV"/>
                     </connections>

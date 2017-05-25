@@ -13,11 +13,16 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var spiceImage: UIImageView!
     @IBOutlet weak var spiceTextField: UITextField!
+
+    // Prepare add button to be used as Update button (create outlet)
+    @IBOutlet weak var addAsUpdateButton: UIButton!
+    
+    @IBOutlet weak var deleteButton: UIButton!
     
     // provide Image Picker
     var imagePicker = UIImagePickerController()
-    
-    
+
+    var spice : Spice? = nil // If + was tapped this will remain nil, otherwise the chose spice will populate the variable.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,23 @@ class SpiceViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         // image picker in this class
         imagePicker.delegate = self
+        
+        // Is this a new record?
+        
+        if spice != nil {
+            
+            spiceImage?.image = UIImage(data: spice!.image! as! Data)
+        spiceTextField.text = spice!.title
+
+            // Change add button to now say "Update"
+            addAsUpdateButton.setTitle("Update", for: .normal)
+            
+        } else {
+            
+            // If spice is new, hide the delete button
+            deleteButton.isHidden = true
+            
+        }
         
     }
     
